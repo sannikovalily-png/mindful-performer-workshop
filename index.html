@@ -31,7 +31,7 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
 /* Layout */
-.divider{width:1px;height:74px;background:linear-gradient(to bottom,transparent,var(--grey),transparent);margin:0 auto}
+.divider{display:none}
 .section{max-width:760px;margin:0 auto;padding:92px 22px;text-align:center}
 .section.narrow{max-width:680px}
 .section-label{font-family:'Inter',sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--grey);margin-bottom:26px}
@@ -49,9 +49,8 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 .card p{margin:0;color:rgba(245,242,237,.76);font-size:.95rem;line-height:1.8}
 
 /* Lists */
-.list{list-style:none;max-width:620px;margin:18px auto 0;text-align:left}
-.list li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(245,242,237,.76);font-size:1rem}
-.list li:last-child{border-bottom:none}
+.list{list-style:none;max-width:640px;margin:18px auto 0;text-align:center}
+.list li{padding:14px 0;border-bottom:none;color:rgba(245,242,237,.85);font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.5vw,1.5rem);line-height:1.8;letter-spacing:.04em;font-weight:300}
 
 /* Images */
 .image-block{max-width:860px;margin:0 auto;padding:0 22px}
@@ -119,8 +118,6 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 </div>
 <p class="caption reveal">An evening inside the room where the work happens</p>
 
-<div class="divider"></div>
-
 <section class="section reveal">
   <span class="section-label">Why join</span>
   <p class="emphasis">Reconnect with yourself. Build grounded confidence. Express yourself freely. Break internal blocks. Shift your mindset.</p>
@@ -153,8 +150,6 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 </div>
 <p class="caption reveal">Energy, play, and courage in the room</p>
 
-<div class="divider"></div>
-
 <section class="section reveal">
   <span class="section-label">Program</span>
   <h2>8 sessions over one month</h2>
@@ -173,8 +168,6 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 
   <p style="margin-top:18px;color:rgba(245,242,237,.62);font-size:.92rem;">Flexible attendance. You can switch groups when needed.</p>
 </section>
-
-<div class="divider"></div>
 
 <section class="section reveal">
   <span class="section-label">Location</span>
@@ -201,8 +194,6 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
   </div>
 </section>
 
-<div class="divider"></div>
-
 <section class="section reveal" id="pay">
   <span class="section-label">How to pay</span>
   <h2>Pay by Whish in less than a minute</h2>
@@ -214,8 +205,6 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
   <img class="image" src="assets/how-to-pay-whish.png" alt="How to pay using Whish" style="filter:none;opacity:1" />
 </div>
 <p class="caption reveal">Step 1 search Mindful Performer. Step 2 fill the details and pay.</p>
-
-<div class="divider"></div>
 
 <footer class="footer">
   <div class="footer-logo">

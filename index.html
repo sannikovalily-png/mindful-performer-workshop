@@ -21,6 +21,7 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 22px;position:relative}
 .hero-figure{width:min(360px,68vw);margin-bottom:38px;opacity:0;animation:softAppear 1.8s cubic-bezier(.25,.46,.45,.94) .2s forwards}
 .hero-figure img{width:100%;height:auto;display:block}
+.hero-figure img.first-image{filter:grayscale(100%) contrast(1.2)}
 .hero-logo{width:min(120px,25vw);margin-bottom:24px;opacity:0;animation:softAppear 1.8s cubic-bezier(.25,.46,.45,.94) .1s forwards}
 .hero-logo img{width:100%;height:auto;display:block;mix-blend-mode:lighten}
 .hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,5vw,4rem);letter-spacing:.22em;text-transform:uppercase;line-height:1.15;margin-bottom:14px;opacity:0;animation:softAppear 1.8s cubic-bezier(.25,.46,.45,.94) .6s forwards}
@@ -95,7 +96,7 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
     <img src="assets/logo.png" alt="Logo" />
   </div>
   <div class="hero-figure">
-    <img src="assets/mindful-hero.png" alt="The Mindful Performer figure" />
+    <img class="first-image" src="assets/mindful-hero.png" alt="The Mindful Performer figure" />
   </div>
   <h1 class="hero-title">The Mindful<br>Performer</h1>
   <p class="hero-subtitle">Wellbeing through acting workshop</p>
@@ -124,7 +125,7 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 </section>
 
 <div class="image-block reveal">
-  <img class="image first-image" src="assets/workshop-circle-wide.jpg" alt="Group sitting in a circle" />
+  <img class="image" src="assets/workshop-circle-wide.jpg" alt="Group sitting in a circle" />
 </div>
 <p class="caption reveal">Presence, listening, and real connection</p>
 

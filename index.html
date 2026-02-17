@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Mindful Performer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0a0a0a;--white:#f5f2ed;--grey:#8a8a8a;--muted:rgba(245,242,237,.78);--accent:#d4c5b0;--line:rgba(255,255,255,.08)}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;line-height:1.85;letter-spacing:.02em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 22px;position:relative}
+.hero-figure{width:min(360px,68vw);margin-bottom:38px;opacity:0;animation:softAppear 1.8s cubic-bezier(.25,.46,.45,.94) .2s forwards}
+.hero-figure img{width:100%;height:auto;display:block}
+.hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,5vw,4rem);letter-spacing:.22em;text-transform:uppercase;line-height:1.15;margin-bottom:14px;opacity:0;animation:softAppear 1.8s cubic-bezier(.25,.46,.45,.94) .6s forwards}
+.hero-subtitle{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(1.05rem,2.6vw,1.35rem);letter-spacing:.14em;color:var(--accent);opacity:0;animation:softAppear 1.8s cubic-bezier(.25,.46,.45,.94) 1s forwards}
+.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);opacity:0;animation:softAppear 1.8s ease 1.6s forwards,float 3s ease-in-out 2.2s infinite}
+.scroll-hint span{display:block;width:1px;height:48px;background:linear-gradient(to bottom,var(--white),transparent)}
+@keyframes softAppear{to{opacity:1}}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* Layout */
+.divider{width:1px;height:74px;background:linear-gradient(to bottom,transparent,var(--grey),transparent);margin:0 auto}
+.section{max-width:760px;margin:0 auto;padding:92px 22px;text-align:center}
+.section.narrow{max-width:680px}
+.section-label{font-family:'Inter',sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--grey);margin-bottom:26px}
+.section h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,4vw,2.7rem);letter-spacing:.08em;line-height:1.25;margin-bottom:18px}
+.section p{font-size:1rem;color:var(--muted);max-width:640px;margin:0 auto 16px}
+.section p:last-child{margin-bottom:0}
+
+.emphasis{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.25rem,3.2vw,1.85rem);color:var(--white);letter-spacing:.03em;line-height:1.55}
+
+/* Cards */
+.card{border:1px solid var(--line);padding:26px;border-radius:14px;background:rgba(255,255,255,.02)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:720px;margin:26px auto 0;text-align:left}
+@media (max-width:680px){.grid{grid-template-columns:1fr}}
+.card h3{font-family:'Inter',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.card p{margin:0;color:rgba(245,242,237,.76);font-size:.95rem;line-height:1.8}
+
+/* Lists */
+.list{list-style:none;max-width:620px;margin:18px auto 0;text-align:left}
+.list li{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06);color:rgba(245,242,237,.76);font-size:1rem}
+.list li:last-child{border-bottom:none}
+
+/* Images */
+.image-block{max-width:860px;margin:0 auto;padding:0 22px}
+.image{width:100%;height:auto;display:block;border-radius:18px;border:1px solid rgba(255,255,255,.06);filter:grayscale(100%);opacity:.9}
+.caption{max-width:860px;margin:10px auto 0;padding:0 26px;color:rgba(245,242,237,.55);font-size:.82rem;letter-spacing:.06em;text-align:center}
+
+/* Buttons */
+.actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-block;padding:14px 28px;border:1px solid var(--white);border-radius:999px;color:var(--white);text-decoration:none;font-family:'Inter',sans-serif;font-weight:300;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;transition:background .35s ease,color .35s ease,opacity .35s ease}
+.btn:hover{background:var(--white);color:var(--black)}
+.btn.secondary{border-color:rgba(255,255,255,.35);color:rgba(245,242,237,.9)}
+.btn.secondary:hover{background:rgba(255,255,255,.12);color:var(--white)}
+
+/* CTA */
+.cta{padding:104px 22px;text-align:center;max-width:760px;margin:0 auto}
+.cta-price{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.2rem,5vw,3.7rem);letter-spacing:.06em;margin-bottom:8px}
+.cta-label{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.cta-note{font-size:.92rem;color:rgba(245,242,237,.7);margin:0 auto;max-width:640px}
+.cta-note strong{color:var(--white);font-weight:400}
+
+/* Footer */
+.footer{text-align:center;padding:72px 22px 58px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-mark{font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;font-size:clamp(1.05rem,2.5vw,1.35rem);color:rgba(245,242,237,.42);letter-spacing:.06em}
+
+/* Mobile spacing */
+@media (max-width:600px){
+  .section{padding:70px 18px}
+  .cta{padding:74px 18px}
+  .divider{height:54px}
+  .hero{padding:46px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-figure">
+    <img src="assets/mindful-hero.png" alt="The Mindful Performer figure" />
+  </div>
+  <h1 class="hero-title">The Mindful<br>Performer</h1>
+  <p class="hero-subtitle">Well being through acting</p>
+  <div class="scroll-hint"><span></span></div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section narrow reveal">
+  <p class="emphasis">A self growth experience designed to reconnect you to your body, your voice, and your inner clarity.</p>
+</section>
+
+<section class="section narrow reveal">
+  <p class="emphasis" style="color: var(--accent);">This is not an acting workshop.</p>
+  <p>No experience is required. Only curiosity and openness.</p>
+  <p>Over 500 participants, from ages 18 to 85, have experienced the depth and impact of this work.</p>
+</section>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/workshop-scene.jpg" alt="Workshop scene" />
+</div>
+<p class="caption reveal">An evening inside the room where the work happens</p>
+
+<div class="divider"></div>
+
+<section class="section reveal">
+  <span class="section-label">Why join</span>
+  <p class="emphasis">Reconnect with yourself. Build grounded confidence. Express yourself freely. Break internal blocks. Shift your mindset.</p>
+  <div class="actions">
+    <a class="btn" href="#reserve">Reserve a spot</a>
+    <a class="btn secondary" href="#pay">How to pay</a>
+  </div>
+</section>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/workshop-circle-wide.jpg" alt="Group sitting in a circle" />
+</div>
+<p class="caption reveal">Presence, listening, and real connection</p>
+
+<div class="divider"></div>
+
+<section class="section reveal">
+  <span class="section-label">What to expect</span>
+  <ul class="list">
+    <li>Experiential movement and breath work</li>
+    <li>Emotional release and clarity</li>
+    <li>Deep presence and embodied confidence</li>
+    <li>Practical tools you can apply in real life</li>
+    <li>A safe space to explore expression without judgment</li>
+  </ul>
+</section>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/workshop-clap.jpg" alt="Workshop moment" />
+</div>
+<p class="caption reveal">Energy, play, and courage in the room</p>
+
+<div class="divider"></div>
+
+<section class="section reveal">
+  <span class="section-label">Program</span>
+  <h2>8 sessions over one month</h2>
+  <p>Each session is designed to build on the one before it, so you feel progress in confidence, emotional regulation, and clarity.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Group A</h3>
+      <p>Monday and Wednesday<br>6:00 to 8:00 PM</p>
+    </div>
+    <div class="card">
+      <h3>Group B</h3>
+      <p>Tuesday and Thursday<br>6:00 to 8:00 PM</p>
+    </div>
+  </div>
+
+  <p style="margin-top:18px;color:rgba(245,242,237,.62);font-size:.92rem;">Flexible attendance. You can switch groups when needed.</p>
+</section>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/workshop-group.jpg" alt="Facilitating a group" />
+</div>
+<p class="caption reveal">Guided exercises, reflection, and real tools</p>
+
+<div class="divider"></div>
+
+<section class="section reveal">
+  <span class="section-label">Location</span>
+  <p class="emphasis">Beirut, Theatre Beryte, IESAV, USJ</p>
+  <div class="actions">
+    <a class="btn secondary" href="https://rb.gy/forkgk" target="_blank" rel="noopener">View on map</a>
+    <a class="btn secondary" href="https://wa.me/96181896859" target="_blank" rel="noopener">Ask a question</a>
+  </div>
+</section>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/workshop-audience.jpg" alt="Audience" />
+</div>
+<p class="caption reveal">A room that holds you, not a stage that judges you</p>
+
+<div class="divider"></div>
+
+<section class="cta reveal" id="reserve">
+  <p class="cta-label">Early bird offer</p>
+  <p class="cta-price">$299</p>
+  <p class="cta-note"><strong>$50 deposit</strong> to reserve your spot. Installments available.</p>
+  <div class="actions">
+    <a class="btn" href="https://wa.me/96181896859" target="_blank" rel="noopener">Reserve on WhatsApp</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section reveal" id="pay">
+  <span class="section-label">How to pay</span>
+  <h2>Pay by Whish in less than a minute</h2>
+  <p>Open the Whish app, search for <strong>Mindful Performer</strong>, then fill your details and set the amount.</p>
+  <p style="color:rgba(245,242,237,.62);font-size:.92rem;">If you prefer, send a message on WhatsApp and the details can be shared directly.</p>
+</section>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/how-to-pay-whish.png" alt="How to pay using Whish" style="filter:none;opacity:1" />
+</div>
+<p class="caption reveal">Step 1 search Mindful Performer. Step 2 fill the details and pay.</p>
+
+<div class="divider"></div>
+
+<div class="image-block reveal">
+  <img class="image" src="assets/workshop-energy.jpg" alt="Group energy" />
+</div>
+<p class="caption reveal">You do not leave the same way you entered</p>
+
+<footer class="footer">
+  <p class="footer-mark">Let this be your next powerful decision.</p>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.15});
+  els.forEach(function(el){io.observe(el);});
+})();
+</script>
+
+</body>
+</html>

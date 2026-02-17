@@ -31,7 +31,16 @@ body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;f
 @keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
 /* Layout */
-.divider{display:none}
+.divider{
+  display:block;
+  border:0;
+  border-top:1.5px solid rgba(245,242,237,0.13);
+  width:88%;
+  margin:48px auto 36px auto;
+  max-width:600px;
+  background:none;
+  height:0;
+}
 .section{max-width:760px;margin:0 auto;padding:60px 22px;text-align:center}
 .section.narrow{max-width:680px}
 .section + .section{padding-top:30px}
